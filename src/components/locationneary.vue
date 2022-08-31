@@ -2,64 +2,154 @@
     <div class="container-fluid p-5">
         <p class="title">LOCATION NEARY</p>
         <div class="row">
-            <div class="col-6">
-                <div class="row imgneary">
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-12 p-2">
-                                <img
-                                    src="https://www.centralpattana.co.th/storage/our-properties/news-project/centralplaza-nakhonratchasima/gallery/002.jpg">
-                            </div>
-                            <div class="col-12 p-2">
-                                <img
-                                    src="https://www.terminal21.co.th/korat/wp-content/uploads/2016/10/Terminal21Korat_building.jpg">
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-12 p-2">
-                                <img
-                                    src="https://scontent.fbkk12-4.fna.fbcdn.net/v/t39.30808-6/214495378_863222997641010_4224992918227843793_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEM9rWDuWTY6D_Xbl6s1QRLpQj47QfptwOlCPjtB-m3AxpHbC3MVXZIyKR7eQsHmaJ1nEXETZSLgfWQNgQW9zYu&_nc_ohc=Jwva-MCmG3MAX_m5Ibo&_nc_oc=AQmAezRNSOxWTElzE_JKYfolTbU0NezGNWdXOemlOZ3F1dUR4HvNuVbwuWDK3BTJPs0&tn=OxaXop81nr1F0eVN&_nc_ht=scontent.fbkk12-4.fna&oh=00_AT_O0xvbzykMt2yrYLqI0JASeklc7TVstEJHQCHK4XM5bw&oe=6301F72F">
-                            </div>
-                            <div class="col-12 p-2">
-                                <img
-                                    src="https://scontent.fbkk13-1.fna.fbcdn.net/v/t1.6435-9/118860932_211372503685678_884177830850412111_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFnSiuTsaeN0ua6EjKhI5YW2x2ZxzszIGDbHZnHOzMgYEyQwQL8XTbuc7x02jTOF6HF3tBndQQu5xOzh43IxJI0&_nc_ohc=D4YB5TEPxTAAX_X23R1&tn=OxaXop81nr1F0eVN&_nc_ht=scontent.fbkk13-1.fna&oh=00_AT-QRKNC5szbJUsbZclOnYHuzZTe3k6T4jQp7SmntzAqGg&oe=63205B85">
-                            </div>
+                <div class="row">
+                    <div class="col-6 mt-3" v-for="(items, index) in imgneary" :key="index">
+                        <div class="card">
+                            <img
+                               v-bind:src="items.urlImage">
                         </div>
                     </div>
-                    <!-- <div class="col-6">
-                        <img
-                            src="https://scontent.fbkk12-4.fna.fbcdn.net/v/t39.30808-6/214495378_863222997641010_4224992918227843793_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEM9rWDuWTY6D_Xbl6s1QRLpQj47QfptwOlCPjtB-m3AxpHbC3MVXZIyKR7eQsHmaJ1nEXETZSLgfWQNgQW9zYu&_nc_ohc=Jwva-MCmG3MAX_m5Ibo&_nc_oc=AQmAezRNSOxWTElzE_JKYfolTbU0NezGNWdXOemlOZ3F1dUR4HvNuVbwuWDK3BTJPs0&tn=OxaXop81nr1F0eVN&_nc_ht=scontent.fbkk12-4.fna&oh=00_AT_O0xvbzykMt2yrYLqI0JASeklc7TVstEJHQCHK4XM5bw&oe=6301F72F">
-                    </div>
-                    <div class="col-6">
-                        <img
-                            src="https://scontent.fbkk13-1.fna.fbcdn.net/v/t1.6435-9/118860932_211372503685678_884177830850412111_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFnSiuTsaeN0ua6EjKhI5YW2x2ZxzszIGDbHZnHOzMgYEyQwQL8XTbuc7x02jTOF6HF3tBndQQu5xOzh43IxJI0&_nc_ohc=D4YB5TEPxTAAX_X23R1&tn=OxaXop81nr1F0eVN&_nc_ht=scontent.fbkk13-1.fna&oh=00_AT-QRKNC5szbJUsbZclOnYHuzZTe3k6T4jQp7SmntzAqGg&oe=63205B85">
-                    </div> -->
                 </div>
             </div>
-            <div class="col-6 p-2">
-                <img class="imghome" src="https://u-sabai.app/img/banner.9becef38.jpg" />
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="card2 mt-3">
+                    <img
+                        src="@/assets/neary.jpeg">
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import axios from "axios";
 export default {
-
+    data(){
+        return {
+            imgneary:[]
+        }
+    },
+   async mounted(){
+       await axios.get("https://www.u-sabai.com/api/web2/locationneary.php")
+        .then((res)=>(this.imgneary=res.data))
+    }
 }
 </script>
+
 <style scoped>
+.container-fluid {
+    height: 100vh;
+    width: 100%;
+    /* display: flex; */
+}
+
+
 .title {
     font-size: 36px;
 }
 
-.imgneary img {
+.card {
     width: 100%;
+    height: 40vh;
+    object-fit: cover;
 }
 
-.imghome{
+.card img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card2 {
+    width: 100%;
+    height: 82vh;
+    object-fit: cover;
+}
+
+.card2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+@media only screen and (max-width: 820px) {
+
+
+    .container-fluid {
+        width: 100%;
+        /* height: 40vh; */
+        height: calc(100vh - calc(100vh - 100%));
+    }
+    .title {
+    font-size: 28px;
+    text-align: center;
+}
+
+    .card {
+    width: 100%;
+    height: 14vh;
+    object-fit: cover;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card2 {
+    width: 100%;
+    height: 29vh;
+    object-fit: cover;
+}
+
+.card2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    .container-fluid {
+        width: 100%;
+        /* height: 40vh; */
+        height: calc(100vh - calc(100vh - 100%));
+    }
+    .title {
+    font-size: 26px;
+    text-align: center;
+}
+
+    .card {
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card2 {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.card2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 }
 </style>

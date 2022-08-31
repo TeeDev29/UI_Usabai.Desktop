@@ -1,83 +1,77 @@
 <template >
     <div class="container-fluid">
-        <div class="container mt-5">
-            <div class="row">
-                <p class="title text-center">Promotion</p>
+
+        <div class="row">
+            <p class="title text-center pb-4 pt-4">Promotion</p>
+            <div class="col-12 col-sm-9 col-md-12 col-lg-9 col-xl-9 col-xxl-9 ">
+
+                <carousel :items-to-show="3" :wrapAround="true" :transition="300" class="m-1">
+                    <slide v-for="(items, index) in ads" key="index">
+                        <!-- {{  slide  }} -->
+                        <a v-bind:href="items.urlPromotion">
+                            <img v-bind:src="items.imagePromotion" class="ads d-block ">
+                        </a>
+
+                    </slide>
+
+                    <template #addons>
+                        <navigation />
+                        <pagination />
+                    </template>
+                </carousel>
+
             </div>
-            <div class="row mt-3">
-                <div class="col-9">
-                    <div class="container">
-                        <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner ps-5 pe-5">
-                                <div class="carousel-item active">
-                                    <div class="row">
-
-                                        <div class="col-md-4 mb-3 ">
-                                            <img src="https://scontent.fbkk13-2.fna.fbcdn.net/v/t39.30808-6/274151083_472652511184550_7056337174358241904_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFoqj1NApTvbk1Isb6hFzNghgw4hVSyPGGGDDiFVLI8YVUFuBEVpvzBNAb3OFofx2PrU-GI_JC0HyBVsGJM9vtv&_nc_ohc=qEFG-dG0RioAX_HIH92&_nc_ht=scontent.fbkk13-2.fna&oh=00_AT-KMsjZRtZVc1fRayea2hhtRvrl3qQjlYXgzo-nJEzRqg&oe=62FF4714"
-                                                class="ads d-block w-100" alt="...">
-                                        </div>
-                                        <div class="col-md-4 mb-3 ">
-                                            <img src="https://scontent.fbkk12-4.fna.fbcdn.net/v/t39.30808-6/295006598_573738681075932_8968410628771555078_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEy61GBl4_cZJSucyLoONjmmEyo_dE9UxWYTKj90T1TFWetWHKf24rBEPRnHtzZCwa-d9ZTKsu0TX9mJIvZQqe-&_nc_ohc=piF4xURXMKkAX-CGq4J&_nc_ht=scontent.fbkk12-4.fna&oh=00_AT8R1_azAWniyurOtnpbpND5qYtqBFRKbIt3wlbljJ4Yiw&oe=63009848"
-                                                class="ads d-block w-100" alt="...">
-                                        </div>
-                                        <div class="col-md-4 mb-3 ">
-                                            <img src="https://scontent.fbkk8-2.fna.fbcdn.net/v/t39.30808-6/298825697_585973863185747_5018433267105465657_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEKU2PdpgQiKSrC24WmaAM_zty2JEmekHbO3LYkSZ6Qdos-m87sWHN1F4ki5yDtiKrb1xlb3iTmz-tMJUyb97i1&_nc_ohc=jpX-W6SVNokAX-5DICP&_nc_ht=scontent.fbkk8-2.fna&oh=00_AT9affWB0qU165ky42QSCVBfyPwShcoqChChiRHcoaojqg&oe=62FFBAC7"
-                                                class="ads d-block w-100" alt="...">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row text-center">
-
-                                        <div class="col-md-4 mb-3">
-                                            <img src="https://scontent.fbkk13-2.fna.fbcdn.net/v/t39.30808-6/274151083_472652511184550_7056337174358241904_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFoqj1NApTvbk1Isb6hFzNghgw4hVSyPGGGDDiFVLI8YVUFuBEVpvzBNAb3OFofx2PrU-GI_JC0HyBVsGJM9vtv&_nc_ohc=qEFG-dG0RioAX_HIH92&_nc_ht=scontent.fbkk13-2.fna&oh=00_AT-KMsjZRtZVc1fRayea2hhtRvrl3qQjlYXgzo-nJEzRqg&oe=62FF4714"
-                                                class="ads d-block w-100" alt="...">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <img src="https://scontent.fbkk13-2.fna.fbcdn.net/v/t39.30808-6/274151083_472652511184550_7056337174358241904_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFoqj1NApTvbk1Isb6hFzNghgw4hVSyPGGGDDiFVLI8YVUFuBEVpvzBNAb3OFofx2PrU-GI_JC0HyBVsGJM9vtv&_nc_ohc=qEFG-dG0RioAX_HIH92&_nc_ht=scontent.fbkk13-2.fna&oh=00_AT-KMsjZRtZVc1fRayea2hhtRvrl3qQjlYXgzo-nJEzRqg&oe=62FF4714"
-                                                class="ads d-block w-100" alt="...">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleControls2" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <p class="title2">We are ready <br>Have pomotion</p>
-                    <p class="title3">Condition</p>
-                    <p class="content text-justify">
-                        It is the last project of Baan Yu Sabai, Hua Talay Zone. There are four roads cut through.
-                    </p>
-                </div>
+            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 containercontent">
+                <p class="title2">We are ready <br>Have pomotion</p>
+                <p class="title3">Condition</p>
+                <p class="content text-justify">
+                    It is the last project of Baan Yu Sabai, Hua Talay Zone. There are four roads cut through.
+                </p>
             </div>
         </div>
+
     </div>
 </template>
 <script>
+import axios from "axios";
+import 'vue3-carousel/dist/carousel.css';
+// https://ismail9k.github.io/vue3-carousel/ lilbary vue3-carousel
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 export default {
-
+    components: {
+        Carousel,
+        Slide,
+        Pagination,
+        Navigation,
+    },
+    data() {
+        return {
+            ads: []
+        }
+    },
+    async mounted() {
+        await axios.get("https://www.u-sabai.com/api/web2/promotion.php")
+            .then((res) => (this.ads = res.data, console.log(res.data)))
+    }
 }
 </script>
 <style scoped>
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
 .title {
-    font-size: 36px;
+    font-size: 46px;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .title2 {
@@ -92,14 +86,91 @@ export default {
 }
 
 .content {
+    width: 60%;
     font-size: 16px;
     font-weight: 200;
 }
 
 .ads {
-    max-width: 250px;
+    width: 400px;
     border-radius: 10px;
-
+    height: 480px;
+    object-fit: cover;
+    padding-left:5px ;
+    /* margin-left: 20px; */
     /* max-height: 270px; */
+}
+
+.row {
+    width: 100%;
+}
+
+
+/* tablet */
+@media only screen and (max-width: 820px) {  
+
+    .container-fluid {
+        /* display: none; */
+        /* background-color: blue; */
+        /* height: 40vh; */
+        padding: 0%;
+        height: calc(100vh - calc(100vh - 100%));
+        padding-bottom: 20px;
+    }
+
+    .containercontent {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0%;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .ads {
+        width: 250px;
+        border-radius: 10px;
+        height: 300px;
+        /* max-height: 270px; */
+    }
+
+
+}
+
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+    .container-fluid {
+        /* display: none; */
+        /* background-color: blue; */
+        /* height: 40vh; */
+        padding: 0%;
+        height: calc(100vh - calc(100vh - 100%));
+    }
+
+    .containercontent {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0%;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .ads {
+        width: 130px;
+        border-radius: 10px;
+        height: 180px;
+        /* max-height: 270px; */
+    }
+
 }
 </style>

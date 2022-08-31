@@ -1,9 +1,8 @@
 <template>
   <div class="container ">
     <nav>
-      <img class="logo" alt="Vue logo" src="@/assets/logousabai.png">
-      <!-- <router-link to="/"><img class="logo" alt="Vue logo" src="@/assets/logousabai.png"></router-link> |
-      <router-link to="/about">About</router-link> -->
+      <router-link to="/"> <img class="logo" alt="Vue logo" v-bind:src=imglogo></router-link> 
+      <!-- <router-link to="/about">About</router-link> -->
     </nav>
   </div>
   <router-view />
@@ -12,18 +11,20 @@
 
 <script>
 import footerview from '@/components/footer.vue'
+import axios from "axios";
 
 export default {
   components: {
     footerview
-  },data(){
-    return{
-      imglogo:''
+  }, data() {
+    return {
+      imglogo: ""
     }
-  },methods: {
-    async getapi(){
-      
-    }
+  }, methods: {
+  },
+  mounted() {
+    axios.get("https://www.u-sabai.com/api/web2/logo.php")
+      .then((res) => (this.imglogo = res.data[0].url));
   }
 }
 </script>
@@ -48,10 +49,12 @@ export default {
 }
 
 nav {
-  background-color: #000000;
+  /* background-color: #000000; */
+  background: rgba(173, 173, 173, 0.5);
+  backdrop-filter: blur(2px);
   position: absolute;
   z-index: 1;
-  padding: 16px;
+  padding: 14px;
   border-radius: 0 0 5px 5px;
   color: aliceblue;
 }
@@ -63,6 +66,22 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #002855;
+}
+
+@media only screen and (max-width: 820px) {
+  .logo {
+  width: 45px;
+  height: 45px;
+  /* margin-right: 10px; */
+}
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+  width: 45px;
+  height: 45px;
+  /* margin-right: 10px; */
+}
 }
 </style>
