@@ -166,11 +166,21 @@ export default {
     }
 
     .ads {
-        width: 130px;
+        width: 120px;
         border-radius: 10px;
-        height: 180px;
+        height: 140px;
         /* max-height: 270px; */
     }
 
+}
+
+
+@media only screen and (max-width: 667px) {
+    .ads {
+        width: 115px;
+        border-radius: 10px;
+        height: 140px;
+        /* max-height: 270px; */
+    }
 }
 </style>

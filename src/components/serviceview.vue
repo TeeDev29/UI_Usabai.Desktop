@@ -5,8 +5,7 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 p-0">
                 <!-- <div class="container p-0"> -->
-                <img class="imghouse"
-                    src="https://images.unsplash.com/photo-1661565883728-c29018265f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" />
+                <img class="imghouse" v-bind:src="imgbanner" />
                 <!-- </div> -->
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 p-0">
@@ -113,18 +112,29 @@
     </div>
 </template>
 <script>
+import axios from "axios";
 import cardservice from '@/widgets/cardservice.vue'
 export default {
     components: {
         cardservice
     }
+    ,
+    data(){
+        return{
+            imgbanner:''
+        }
+    },
+    async mounted() {
+        await axios.get("https://www.u-sabai.com/api/web2/imagestorage.php")
+        .then((res)=>(console.log(res.data[0].pathfile),this.imgbanner=res.data[0].pathfile))
+    },
 }
 </script>
 <style scoped>
 .container-fluid {
     /* display: flex; */
     height: 100vh;
-    width: 100%;
+    width: 94%;
 }
 
 
@@ -167,7 +177,7 @@ a {
 }
 
 .imghouse {
-
+    object-fit: cover;
     width: 100%;
     min-height: 100vh;
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.327);
@@ -260,4 +270,15 @@ a {
         font-size: 8px;
     }
 }
+
+@media only screen and (max-width: 667px) {
+
+    .card {
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+
+    }
+}
+
 </style>

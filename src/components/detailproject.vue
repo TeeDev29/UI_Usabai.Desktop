@@ -502,4 +502,12 @@ export default {
 
 }
 
+@media only screen and (max-width: 667px) {
+    .itemimg {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+}
+
 </style>

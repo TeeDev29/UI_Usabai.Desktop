@@ -397,6 +397,7 @@ export default {
 
     .container-fluid {
         height: calc(100vh - calc(100vh - 100%));
+        background-color: rgb(133, 127, 255);
     }
 
     .nav-link {
@@ -487,6 +488,7 @@ export default {
 @media only screen and (max-width: 600px) {
     .container-fluid {
         height: calc(100vh - calc(100vh - 100%));
+        /* background-color: aquamarine; */
     }
 
     .nav-link {
@@ -510,7 +512,7 @@ export default {
     .carddetail {
 
         width: 100%;
-        height: 800px;
+        height: 680px;
 
     }
 
@@ -557,5 +559,43 @@ export default {
 
     }
 
+    .imgmore {
+    width: 70px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 10px;
 }
+
+
+}
+
+
+
+@media only screen and (max-width: 667px) {
+    .content {
+
+
+word-wrap: break-word;
+width: 90%;
+text-align: justify;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+line-clamp: 2;
+-webkit-box-orient: vertical;
+
+}
+
+
+.rowdetail {
+    height: 480px;
+    width: 90%;
+    margin-left: 6%;
+    /* padding: ; */
+}
+
+}
+
 </style>
